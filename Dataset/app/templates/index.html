@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Flipkart Review Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛒 Flipkart Review Sentiment Analyzer</h1>
+<p>Check whether a product review is Positive, Neutral or Negative</p>
+
+<form method="POST">
+
+<textarea name="review" placeholder="Enter product review here..." required></textarea>
+
+<br>
+
+<button type="submit">Analyze Review </button>
+
+</form>
+
+{% if prediction %}
+
+<div class="result">
+
+<h2>Sentiment Result:</h2>
+
+{% if prediction == "Positive" %}
+<h2 class="positive">😊 Positive Review</h2>
+{% elif prediction == "Negative" %}
+<h2 class="negative">😡 Negative Review</h2>
+{% else %}
+<h2 class="neutral">😐 Neutral Review</h2>
+{% endif %}
+
+</div>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>
